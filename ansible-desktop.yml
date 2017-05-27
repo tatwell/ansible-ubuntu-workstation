@@ -5,11 +5,11 @@
   roles:
     # Common roles
     # - { role: locales, become: true }
-    # - { role: common, become: true }
+    - { role: common, become: true }
     # - { role: zsh, become: true }
     # - { role: dotfiles, become: true }
-    # - { role: java-openjdk, become: true }
-    # - { role: phantomjs, become: true }
+    - { role: java-openjdk, become: true }
+    - { role: phantomjs, become: true }
     # - { role: projects-installer }
     # Server roles
     # - { role: apache2, become: true }
@@ -39,15 +39,15 @@
     # - { role: rbenv, become: true }
     # - { role: ssh, become: true }
     # Desktop roles
-    # - { role: desktop, become: true }
-    # - { role: desktop-cleanup, become: true }
+    - { role: desktop, become: true }
+    - { role: desktop-cleanup, become: true }
     # - { role: desktop-autostart, become: true }
-    # - { role: desktop-preferences-unity }
+    - { role: desktop-preferences-unity }
     # - { role: adapta-theme, become: true }
     # - { role: albert, become: true }
     # - { role: altyo, become: true }
     # - { role: arc-theme, become: true }
-    # - { role: atom, become: true }
+    - { role: atom, become: true }
     # - { role: chromium, become: true }
     # - { role: claws-mail, become: true }
     # - { role: compton, become: true }
@@ -59,6 +59,7 @@
     # - { role: gdrive, become: true }
     # - { role: geary, become: true }
     # - { role: gimp, become: true }
+    - { role: google-chrome, become: true }
     # - { role: grub-customizer, become: true }
     # - { role: hubic, become: true }
     # - { role: indicator-sysmonitor, become: true }

@@ -16,7 +16,7 @@
     - rhythmbox
     - rxvt-unicode-256color
     - sox # to play sounds
-    - tilda # lighter than guake
+    - tilda # drop-down terminal (lighter than guake) 
     - ubuntu-restricted-extras # MP3, Microsoft fonts, Flash plugin, LAME and DVD playback
     - unetbootin # create bootable USB drives
     - vlc
