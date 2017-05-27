@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+  DocumentRoot "/var/www/html/wiki"
+  ServerName wiki
+  <Directory "/var/www/html/wiki">
+    Options Indexes FollowSymLinks Multiviews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+  </Directory>
+</VirtualHost>

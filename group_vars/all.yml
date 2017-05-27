@@ -4,6 +4,24 @@
 aptcachetime: 3600
 locale: "en_US.UTF-8"
 timezone: "America/Los_Angeles"
+
+# Role: wiki
+wiki:
+  # version is git branch
+  version: 1.4.0-pre
+  mysql_user: wiki
+  mysql_password: wiki_password
+  mysql_database: local_wiki
+  admin_users: KlenwellAdmin
+
+  # These will need to be updated manually or using vault
+  admin_email: TBA
+  gmail_user: TBA
+  gmail_password: TBA
+  recaptcha_domain: TBA
+  rc_public_key: TBA
+  rc_private_key: TBA
+
 chromium:
   set_default: true
   policy: false

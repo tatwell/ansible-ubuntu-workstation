@@ -1,3 +1,12 @@
+#
+# To run playbook:
+#   ansible-playbook ansible-desktop.yml --ask-become-pass
+#
+# To run specific roles, add tag dev:
+#   - { role: wiki, tags: dev }
+# Then run playbook with --tags option:
+#   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev
+#
 ---
 
 - name: Ubuntu desktop environment playbook
@@ -22,6 +31,9 @@
     - { role: php-phar-tools, become: true }
     - { role: apache2-php, become: true }
     - { role: mysql57, become: true }
+
+    # Personal Wiki
+    - { role: wiki, tags: dev }
 
     # Rails
 

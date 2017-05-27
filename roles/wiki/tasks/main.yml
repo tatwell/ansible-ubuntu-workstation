@@ -1,0 +1,73 @@
+#
+# Install my personal WikkaWiki wiki locally.
+#
+---
+- name: "Create projects directory {{ ansible_env.HOME }}/projects"
+  file: path="{{ ansible_env.HOME }}/projects" state=directory
+  register: projects_directory_created
+
+- name: "Clone WikkaWiki repository to {{ ansible_env.HOME }}/projects/wiki"
+  git:
+    repo: https://github.com/wikkawik/WikkaWiki
+    dest: "{{ ansible_env.HOME }}/projects/wiki"
+    version: "{{ wiki.version }}"
+
+- name: Download Wikka Bootstrap theme
+  git:
+    repo: https://github.com/klenwell/wikka-bootstrap
+    dest: /tmp/wikka-bootstrap
+
+- name: Install Wikka Bootstrap theme
+  command: "cp -R /tmp/wikka-bootstrap/bootstrap {{ ansible_env.HOME }}/projects/wiki/templates/"
+
+- name: Install Wikka config file
+  template:
+    src: wikka.config.php.j2
+    dest: "{{ ansible_env.HOME }}/projects/wiki/wikka.config.php"
+    force: yes
+    mode: 0644
+
+- name: Create wiki database user
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysql.password }}"
+    user: "{{ wiki.mysql_user }}"
+    password: "{{ wiki.mysql_password }}"
+    priv: "{{ wiki.mysql_database }}.*:ALL"
+    state: present
+
+- name: Create mysql database
+  mysql_db:
+    login_user: root
+    login_password: "{{ mysql.password }}"
+    db: "{{ wiki.mysql_database }}"
+    state: present
+
+- name: Link wiki directory to /var/www/html
+  file:
+    src: "{{ ansible_env.HOME }}/projects/wiki"
+    path: /var/www/html/wiki
+    state: link
+  become: true
+
+- name: Set up local virtual host for Apache
+  template:
+    src: apache.conf.j2
+    dest: "/etc/apache2/sites-available/wiki.conf"
+  become: true
+
+- name: Enable wiki virtual host
+  shell: "a2ensite wiki.conf"
+  notify: Restart Apache2
+  become: true
+
+- name: Add wiki to /etc/hosts
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^127\.0\.0\.1     wiki'
+    line: '127.0.0.1     wiki'
+    state: present
+  become: true
+
+- name: Wiki announcement
+  debug: msg="Wiki setup complete. See http://wiki/."
