@@ -16,13 +16,14 @@
     - rhythmbox
     - rxvt-unicode-256color
     - sox # to play sounds
-    - tilda # lighter than guake
+    - tilda # drop-down terminal (lighter than guake)
     - ubuntu-restricted-extras # MP3, Microsoft fonts, Flash plugin, LAME and DVD playback
     - unetbootin # create bootable USB drives
     - vlc
     - wmctrl # to control windows
     - xclip # to manipulate the clipboard
     - xdotool # to control windows
+    - gimp
 
 - name: Install common desktop packages if Ubuntu 16.04
   apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ aptcachetime }}

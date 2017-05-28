@@ -1,19 +1,51 @@
+#
+# To run playbook:
+#   ansible-playbook ansible-desktop.yml --ask-become-pass
+#
+# To run specific roles, add tag dev:
+#   - { role: wiki, tags: dev }
+# Then run playbook with --tags option:
+#   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev
+#
 ---
 
 - name: Ubuntu desktop environment playbook
   hosts: localhost
   roles:
+    # Common
+    - { role: common, become: true }
+    - { role: java-openjdk, become: true }
+    - { role: phantomjs, become: true }
+
+    # Desktop
+    - { role: desktop, become: true }
+    - { role: desktop-cleanup, become: true }
+    - { role: desktop-preferences-unity }
+    - { role: desktop-autostart, become: true }
+    - { role: atom, become: true }
+    - { role: google-chrome, become: true }
+
+    # LAMP Server
+    - { role: apache2, become: true }
+    - { role: php, become: true }
+    - { role: php-pecl, become: true }
+    - { role: php-phar-tools, become: true }
+    - { role: apache2-php, become: true }
+    - { role: mysql57, become: true }
+
+    # Personal Wiki
+    - { role: wiki, tags: dev }
+
+    # Rails
+
+    # Unused Roles
     # Common roles
     # - { role: locales, become: true }
-    # - { role: common, become: true }
     # - { role: zsh, become: true }
     # - { role: dotfiles, become: true }
-    # - { role: java-openjdk, become: true }
-    # - { role: phantomjs, become: true }
     # - { role: projects-installer }
+
     # Server roles
-    # - { role: apache2, become: true }
-    # - { role: apache2-php, become: true }
     # - { role: beanstalkd, become: true }
     # - { role: blackfire, become: true }
     # - { role: composer, become: true }
@@ -26,28 +58,20 @@
     # - { role: mailcatcher, become: true }
     # - { role: mailhog, become: true }
     # - { role: memcached, become: true }
-    # - { role: mysql57, become: true }
     # - { role: mysql56, become: true }
     # - { role: nginx, become: true }
     # - { role: nginx-php-fpm, become: true }
     # - { role: nodejs, become: true }
-    # - { role: php, become: true }
-    # - { role: php-pecl, become: true }
-    # - { role: php-phar-tools, become: true }
     # - { role: python, become: true }
     # - { role: redis, become: true }
     # - { role: rbenv, become: true }
     # - { role: ssh, become: true }
+
     # Desktop roles
-    # - { role: desktop, become: true }
-    # - { role: desktop-cleanup, become: true }
-    # - { role: desktop-autostart, become: true }
-    # - { role: desktop-preferences-unity }
     # - { role: adapta-theme, become: true }
     # - { role: albert, become: true }
     # - { role: altyo, become: true }
     # - { role: arc-theme, become: true }
-    # - { role: atom, become: true }
     # - { role: chromium, become: true }
     # - { role: claws-mail, become: true }
     # - { role: compton, become: true }
@@ -95,11 +119,13 @@
     # - { role: workrave, become: true }
     # - { role: xfce-dockbarx, become: true }
     # - { role: xmind, become: true }
+
     # bspwm
     # - { role: sxhkd, become: true }
     # - { role: bspwm, become: true }
     # - { role: bspwm-panel, become: true }
     # - { role: bspwm-environment, become: true }
+
     # User roles
     # - { role: gulp}
     # - { role: browsersync }
