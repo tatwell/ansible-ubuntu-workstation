@@ -65,7 +65,7 @@
     # - { role: python, become: true }
     # - { role: redis, become: true }
     # - { role: rbenv, become: true }
-    # - { role: ssh, become: true }
+    # - { role: ssh-server, become: true }
 
     # Desktop roles
     # - { role: adapta-theme, become: true }
