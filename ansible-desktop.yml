@@ -24,6 +24,7 @@
     - { role: desktop-autostart, become: true }
     - { role: atom, become: true }
     - { role: google-chrome, become: true }
+    - { role: ssh-keys, tags: dev }
 
     # LAMP Server
     - { role: apache2, become: true }
@@ -34,7 +35,7 @@
     - { role: mysql57, become: true }
 
     # Personal Wiki
-    - { role: wiki, tags: dev }
+    - { role: wiki }
 
     # Rails
 
