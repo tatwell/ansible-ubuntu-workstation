@@ -1,0 +1,41 @@
+#
+# SSH Keys for Multiple Accounts
+#
+# References
+# - https://stackoverflow.com/questions/3860112
+# - http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
+#
+
+#
+# klenwell.com Key
+#
+Host klenwell.com
+  HostName klenwell.com
+  IdentityFile ~/.ssh/klenwell.com
+
+#
+# Github Keys
+#
+# Must copy key to Github. See:
+# - https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+#
+# To use a specific key for an account, add remote origin. For example:
+#   $ git remote add origin git@github-tatwell:tatwell/ansible-ubuntu-workstation.git
+#
+Host github-klenwell
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github-klenwell
+
+Host github-tatwell
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github-tatwell
+
+#
+# Bitbucket Keys
+#
+Host bitbucket-klenwell
+  HostName bitbucket.org
+  User klenwell
+  IdentityFile ~/.ssh/bitbucket-klenwell
