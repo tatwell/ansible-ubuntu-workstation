@@ -21,6 +21,7 @@
     - { role: desktop, become: true }
     - { role: desktop-cleanup, become: true }
     - { role: desktop-preferences-unity }
+    - { role: desktop-autostart, become: true }
     - { role: atom, become: true }
     - { role: google-chrome, become: true }
 
@@ -67,7 +68,6 @@
     # - { role: ssh, become: true }
 
     # Desktop roles
-    # - { role: desktop-autostart, become: true }
     # - { role: adapta-theme, become: true }
     # - { role: albert, become: true }
     # - { role: altyo, become: true }
