@@ -7,6 +7,13 @@
 #
 
 #
+# klenwell.com Key
+#
+Host klenwell.com
+  HostName klenwell.com
+  IdentityFile ~/.ssh/klenwell.com
+
+#
 # Github Keys
 #
 # Must copy key to Github. See:
@@ -16,11 +23,19 @@
 #   $ git remote add origin git@github-tatwell:tatwell/ansible-ubuntu-workstation.git
 #
 Host github-klenwell
-  Hostname github.com
+  HostName github.com
   User git
   IdentityFile ~/.ssh/github-klenwell
 
 Host github-tatwell
-  Hostname github.com
+  HostName github.com
   User git
   IdentityFile ~/.ssh/github-tatwell
+
+#
+# Bitbucket Keys
+#
+Host bitbucket-klenwell
+  HostName bitbucket.org
+  User klenwell
+  IdentityFile ~/.ssh/bitbucket-klenwell

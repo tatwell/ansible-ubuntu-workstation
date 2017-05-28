@@ -6,9 +6,11 @@
 - name: Generate SSH keys
   command: "ssh-keygen -t rsa -b 4096 -f {{ ansible_env.HOME }}/.ssh/{{ item }} -C \"{{ item }}\" -N ''"
   with_items:
+    - id_rsa
     - github-klenwell
     - github-tatwell
-  # Only run if file does not exist (creates returns true)
+    - bitbucket-klenwell
+  # Only run if file does not exist (i.e. creates returns true)
   args:
       creates: "{{ ansible_env.HOME }}/.ssh/{{ item }}"
 
