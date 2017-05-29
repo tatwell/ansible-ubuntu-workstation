@@ -22,10 +22,13 @@
     - { role: desktop-cleanup, become: true }
     - { role: desktop-preferences-unity }
     - { role: desktop-autostart, become: true }
-    - { role: ssh-keys }
     - { role: atom, become: true }
     - { role: google-chrome, become: true }
     - { role: gimp, become: true }
+
+    # Developer
+    - { role: ssh-keys }
+    - { role: geerlingguy.jenkins, become: true }
 
     # LAMP Server
     - { role: apache2, become: true }
