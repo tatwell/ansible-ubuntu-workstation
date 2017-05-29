@@ -28,7 +28,7 @@
 
     # Developer
     - { role: ssh-keys }
-    - { role: geerlingguy.jenkins, become: true }
+    - { role: geerlingguy.jenkins, become: true, tags: dev }
 
     # LAMP Server
     - { role: apache2, become: true }
@@ -38,10 +38,12 @@
     - { role: apache2-php, become: true }
     - { role: mysql57, become: true }
 
+    # Python / Google App Engine
+
+    # Ruby / Rails
+
     # Personal Wiki
     - { role: wiki }
-
-    # Rails
 
     # Unused Roles
     # Common roles
