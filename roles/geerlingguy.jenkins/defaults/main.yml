@@ -16,6 +16,8 @@ jenkins_plugin_updates_expiration: 86400
 
 jenkins_plugins:
   - greenballs
+  - mercurial
+  - shiningpanda
 
 jenkins_jobs:
   - good-morning-jenkins
