@@ -27,8 +27,11 @@
     - { role: gimp, become: true }
 
     # Developer
+    - { role: home-sweet-home, tags: dev }
     - { role: ssh-keys }
+    - { role: avanov.pyenv, become: true, tags: dev }
     - { role: geerlingguy.jenkins, become: true, tags: dev }
+    - { role: jenkins-pyenv, become: true, tags: dev }
 
     # LAMP Server
     - { role: apache2, become: true }
@@ -38,12 +41,12 @@
     - { role: apache2-php, become: true }
     - { role: mysql57, become: true }
 
-    # Python / Google App Engine
+    # Google App Engine / Python
 
     # Ruby / Rails
 
     # Personal Wiki
-    - { role: wiki }
+    - { role: wiki, tags: dev }
 
     # Unused Roles
     # Common roles

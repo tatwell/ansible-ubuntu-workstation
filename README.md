@@ -10,7 +10,7 @@ This was based largely on https://github.com/Benoth/ansible-ubuntu. If you're bu
 
 
 ## Installation
-First, install Git and Ansible using the install script :
+1. First, install Git and Ansible using the install script :
 ```
 sudo apt-get install git
 git clone https://github.com/tatwell/ansible-ubuntu-workstation.git
@@ -18,11 +18,27 @@ cd ansible-ubuntu-workstation
 ./install.sh
 ```
 
-Then review and customize the playbook `ansible-desktop.yml` and settings in `group_vars/all.yml`.
+2. Review and customize the playbook `ansible-desktop.yml`
+3. Update settings in `group_vars/all.yml`.
 
-Finally, to run the playbook:
+
+## Usage
+To run the playbook:
 
     ansible-playbook ansible-desktop.yml --ask-become-pass
+
+
+## Manual Steps
+After running the playbook, I still need to do the following tasks manually:
+
+- On Jenkins server, add Python installations for the [Shining Panda plugin](https://wiki.jenkins-ci.org/display/JENKINS/ShiningPanda+Plugin):
+  - Manage Jenkins > Global Tool Configuration > Python installations
+  - Input following settings:
+    - Name: `Jenkins-Pyenv-Python-2.7.8`
+    - Home or executable: `/var/lib/jenkins/pyenv/versions/2.7.8/bin/python2`
+  - Push **Add Python** button.
+
+- As `jenkins` user, update password settings in `/var/lib/jenkins/.env/local-wiki.env`.
 
 
 ## Roles
