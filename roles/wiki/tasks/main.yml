@@ -24,7 +24,7 @@
   template:
     src: wikka.config.php.j2
     dest: "{{ ansible_env.HOME }}/projects/wiki/wikka.config.php"
-    force: yes
+    force: no
     mode: 0644
 
 - name: Create wiki database user
