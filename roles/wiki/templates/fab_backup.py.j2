@@ -1,0 +1,140 @@
+"""
+    fab_backup.py
+    Fabric script to securely backup local database and mail to given email address.
+
+    USAGE
+    fab -f fab_backup.py mail:klenwell@gmail.com
+
+    REQUIREMENTS
+    - dotenv file with following settings:
+        - MYSQL_DB
+        - MYSQL_USER
+        - MYSQL_PASS
+        - GMAIL_USER
+        - GMAIL_PASS
+        - 7Z_PASS
+"""
+#
+# Imports
+#
+import sys, os
+from datetime import date, datetime
+
+from fabric.api import env, local
+from dotenv import load_dotenv
+
+#
+# Import secrets from dotenv file.
+#
+dotenv_path = '{{ jenkins_home }}/.env/local-wiki.env'
+load_dotenv(dotenv_path)
+
+env.hosts = ['localhost']
+
+#
+# Globals
+#
+DB_NAME     = os.environ['MYSQL_DB']
+DB_USER     = os.environ['MYSQL_USER']
+DB_PASS     = os.environ['MYSQL_PASS']
+
+SMTP_SERVER = 'smtp.gmail.com:587'
+SMTP_USER   = os.environ['GMAIL_USER']
+SMTP_PASS   = os.environ['GMAIL_PASS']
+EMAIL_FROM  = 'Fab Script <%s>' % (SMTP_USER)
+
+Z7_PASS     = os.environ['7Z_PASS']
+Z7_PATH     = "/tmp/%s-%s.sql.7z" % (DB_NAME, datetime.now().strftime("%Y%m%d"))
+
+#
+# Commands
+#
+def mail(address=None):
+    # Validate email address
+    if not address or ("@" not in address) or ("." not in address):
+        raise Exception("must provide valid email address in command line: email:<address>")
+
+    # Dump database to 7z file.
+    zip_path = mysqldump_and_zip(DB_NAME, DB_USER, DB_PASS)
+
+    # Send email.
+    subject = "%(dbname)s Database Backup [%(today)s]" % dict(
+        dbname = DB_NAME,
+        today = str(date.today())
+    )
+
+    body = """\
+FABRIC BACKUP SCRIPT
+script: %(script_path)s
+args:   %(argv)s
+
+To unzip:
+    7z x %(z7path)s
+    Password can be found at %(dotenv_path)s
+
+""" % dict(script_path = __file__,
+           argv = ' '.join(sys.argv),
+           z7path = os.path.basename(zip_path),
+           dotenv_path = dotenv_path)
+
+    email_via_gmail([address], subject, body, files=[zip_path])
+
+def test():
+    print "test successful"
+
+#
+# Support Functions
+#
+def mysqldump_and_zip(db_name, db_user, db_pass):
+    cmd_mysql_dump = "mysqldump -u %(dbuser)s -p%(dbpass)s %(dbname)s" % dict(
+        dbuser=db_user,
+        dbpass=db_pass,
+        dbname=db_name
+    )
+    cmd_7zip = "7z a -p%(z7pass)s -si %(z7path)s > /dev/null 2>&1" % dict(
+        z7pass=Z7_PASS,
+        z7path=Z7_PATH
+    )
+
+    if os.path.exists(Z7_PATH):
+        os.unlink(Z7_PATH)
+
+    cmd = "%s | %s" % (cmd_mysql_dump, cmd_7zip)
+    local(cmd)
+    return Z7_PATH
+
+def email_via_gmail(to, subject, text, files=[]):
+    import smtplib
+    from email.MIMEMultipart import MIMEMultipart
+    from email.MIMEBase import MIMEBase
+    from email.MIMEText import MIMEText
+    from email.Utils import COMMASPACE, formatdate
+    from email import Encoders
+
+    assert type(to) == list
+    assert type(files) == list
+    from_ = EMAIL_FROM
+
+    msg = MIMEMultipart()
+    msg['From'] = EMAIL_FROM
+    msg['To'] = COMMASPACE.join(to)
+    msg['Date'] = formatdate(localtime=True)
+    msg['Subject'] = subject
+
+    msg.attach( MIMEText(text) )
+
+    for fpath in files:
+        part = MIMEBase('application', "octet-stream")
+        part.set_payload( open(fpath,"rb").read() )
+        Encoders.encode_base64(part)
+        part.add_header('Content-Disposition', 'attachment; filename="%s"'
+                       % os.path.basename(fpath))
+        msg.attach(part)
+
+    smtp = smtplib.SMTP(SMTP_SERVER)
+    #smtp.set_debuglevel(1)
+    smtp.ehlo()    # apparently this is required in python 2.5
+    smtp.starttls()
+    smtp.login(SMTP_USER, SMTP_PASS)
+    smtp.sendmail(from_, to, msg.as_string() )
+    smtp.close()

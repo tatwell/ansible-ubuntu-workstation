@@ -22,10 +22,16 @@
     - { role: desktop-cleanup, become: true }
     - { role: desktop-preferences-unity }
     - { role: desktop-autostart, become: true }
-    - { role: ssh-keys }
     - { role: atom, become: true }
     - { role: google-chrome, become: true }
     - { role: gimp, become: true }
+
+    # Developer
+    - { role: home-sweet-home, tags: dev }
+    - { role: ssh-keys }
+    - { role: avanov.pyenv, become: true, tags: dev }
+    - { role: geerlingguy.jenkins, become: true, tags: dev }
+    - { role: jenkins-pyenv, become: true, tags: dev }
 
     # LAMP Server
     - { role: apache2, become: true }
@@ -35,10 +41,12 @@
     - { role: apache2-php, become: true }
     - { role: mysql57, become: true }
 
-    # Personal Wiki
-    - { role: wiki }
+    # Google App Engine / Python
 
-    # Rails
+    # Ruby / Rails
+
+    # Personal Wiki
+    - { role: wiki, tags: dev }
 
     # Unused Roles
     # Common roles

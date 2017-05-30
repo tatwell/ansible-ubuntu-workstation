@@ -1,0 +1,11 @@
+---
+# defaults file for pyenv
+pyenv_path: "{{ ansible_env.HOME }}/pyenv"
+pyenv_owner: "{{ ansible_env.USER }}"
+pyenv_update_git_install: no
+pyenv_enable_autocompletion: no
+pyenv_python_versions:
+  - 3.5.0
+  - 2.7.8
+pyenv_virtualenvs:
+  - { venv_name: "latest", py_version: "3.5.0" }

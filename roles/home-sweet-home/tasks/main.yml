@@ -1,0 +1,14 @@
+---
+- name: Make .env folder for user secrets.
+  file:
+    path: "{{ ansible_env.HOME }}/.env"
+    state: directory
+    mode: 0755
+
+- name: Install sample dotenv file.
+  copy:
+    src: sample.env
+    dest: "{{ ansible_env.HOME }}/.env/sample.env"
+    force: no
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"

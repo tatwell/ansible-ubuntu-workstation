@@ -69,5 +69,8 @@
     state: present
   become: true
 
+# Install Jenkins jobs
+- include: jobs.yml
+
 - name: Wiki announcement
   debug: msg="Wiki setup complete. See http://wiki/."
