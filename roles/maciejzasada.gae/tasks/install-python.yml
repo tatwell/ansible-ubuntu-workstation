@@ -1,0 +1,31 @@
+---
+# tasks file for ansible-role-gae install task
+- name: create temp directory to work in
+  file: state=directory path={{ gae_temp_dir }}
+
+- name: create install directory
+  file: state=directory path={{ gae_install_dir }}
+
+- name: download Google App Engine installation package
+  get_url: url={{ gae_download_url_python }}
+           dest={{ gae_temp_dir }}/google_appengine_{{ gae_version }}.zip
+
+- name: unzip the downloaded file
+  unarchive: src={{ gae_temp_dir }}/google_appengine_{{ gae_version }}.zip
+             dest={{ gae_install_dir }}
+             copy=no
+
+- name: Install .pyenvrc
+  template:
+    src: ".gae-rc.j2"
+    dest: "{{ gae_install_dir }}/.gae-rc"
+    mode: "0644"
+
+- name: Load pyenv env variables in .bashrc
+  lineinfile: dest="~/.bashrc"
+              regexp="\.gae-rc$"
+              line="source {{ gae_install_dir }}/.gae-rc"
+              state=present
+              create=yes
+  notify:
+    - source bashrc

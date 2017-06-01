@@ -1,0 +1,4 @@
+---
+# tasks file for ansible-role-gae
+- include: install.yml
+  when: gae_action == 'install'
