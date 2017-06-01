@@ -1,0 +1,33 @@
+---
+# tasks file for ansible-role-gae install task
+- name: create temp directory to work in
+  file: state=directory path={{ gae_temp_dir }}
+
+- name: install PHP and dependencies
+  sudo: yes
+  apt: pkg={{item}}
+  with_items:
+    - php5-common
+    - libapache2-mod-php5
+    - php5-cli
+
+- name: install MySQL server
+  sudo: yes
+  apt: pkg=mysql-server-5.5
+
+- name: download Google App Engine installation package
+  get_url: url={{ gae_download_url_php }} dest={{ gae_temp_dir }}/gae.zip
+
+- name: unzip the downloaded file
+  unarchive: src={{ gae_temp_dir }}/gae.zip copy=no dest={{ gae_install_dir }}
+
+- name: export path
+  sudo: yes
+  lineinfile: >
+    dest=/etc/environment
+    state=present
+    backrefs=yes
+    regexp='PATH=(["]*)((?!.*?{{gae_install_dir}}/google_appengine).*?)(["]*)$'
+    line="PATH=\1\2:{{gae_install_dir}}/google_appengine\3"
+  # notify:
+  #   - restart shell

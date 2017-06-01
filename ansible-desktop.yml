@@ -32,6 +32,8 @@
     - { role: avanov.pyenv, become: true, tags: dev }
     - { role: geerlingguy.jenkins, become: true }
     - { role: jenkins-pyenv, become: true }
+    #- { role: google-cloud-app-engine, google_account=klenwell@gmail.com, tags: dev }
+    - { role: maciejzasada.gae, gae_language: 'python', gae_version: "1.9.54", tags: dev }
 
     # LAMP Server
     - { role: apache2, become: true }

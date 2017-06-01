@@ -1,0 +1,24 @@
+---
+# tasks file for ansible-role-gae install task
+- name: create temp directory to work in
+  file: state=directory path={{ gae_temp_dir }}
+
+- name: download Google App Engine installation package
+  get_url: url={{ gae_download_url_python }} dest={{ gae_temp_dir }}/gae.zip
+
+- name: unzip the downloaded file
+  unarchive: src={{ gae_temp_dir }}/gae.zip copy=no dest={{ gae_install_dir }}
+
+- name: export path
+  lineinfile: >
+    dest=/etc/environment
+    state=present
+    backrefs=yes
+    regexp='PATH=(["]*)((?!.*?{{gae_install_dir}}/google_appengine).*?)(["]*)$'
+    line="PATH=\1\2:{{gae_install_dir}}/google_appengine\3"
+  become: true
+  # notify:
+  #   - restart shell
+
+- name: Add dev_appserver.py to path
+  command: "{{ gae_install_dir }}/google-cloud-sdk/install.sh"

@@ -1,0 +1,31 @@
+#
+# Tasks to install Google Cloud SDK with Standard Python App Engine
+#
+# References
+# - https://cloud.google.com/appengine/docs/standard/python/download
+# - https://github.com/maciejzasada/ansible-role-gae
+#
+---
+# tasks file for ansible-role-gae install task
+- name: Create temp directory
+  file: state=directory path={{ gcloud_temp_dir }}
+
+- name: Download Google Cloud SDK
+  get_url: url={{ gcloud_download_url }} dest="{{ gcloud_temp_dir }}/gcloud.tar.gz"
+
+- name: Unarchive SDK download
+  unarchive:
+    src: "{{ gcloud_temp_dir }}/gcloud.tar.gz"
+    copy: no
+    dest: "{{ gcloud_install_dir }}"
+
+- name: Install the Google Cloud SDK
+  command: ./google-cloud-sdk/install.sh chdir="{{ gcloud_install_dir }}"
+
+# TODO: This requires a credentialed account or interaction with the script.
+- name: Initialize the Google Cloud SDK
+  command: ./google-cloud-sdk/bin/gcloud init --console-only --account="{{ google_account }}"
+           chdir="{{ gcloud_install_dir }}"
+
+- name: install the gcloud component that includes the App Engine extension for Python
+  command: gcloud components install app-engine-python
