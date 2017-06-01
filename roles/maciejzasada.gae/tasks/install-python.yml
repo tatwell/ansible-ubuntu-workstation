@@ -18,13 +18,13 @@
 - name: Install .pyenvrc
   template:
     src: ".gae-rc.j2"
-    dest: "{{ gae_install_dir }}/.gae-rc"
+    dest: "{{ gae_install_dir }}/google_appengine/.gae-rc"
     mode: "0644"
 
 - name: Load pyenv env variables in .bashrc
   lineinfile: dest="~/.bashrc"
               regexp="\.gae-rc$"
-              line="source {{ gae_install_dir }}/.gae-rc"
+              line="source {{ gae_install_dir }}/google_appengine/.gae-rc"
               state=present
               create=yes
   notify:
