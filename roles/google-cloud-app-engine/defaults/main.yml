@@ -1,6 +1,0 @@
----
-gcloud_version: "156.0.0"
-gcloud_download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_version }}-linux-x86_64.tar.gz"
-gcloud_install_dir: "{{ ansible_env.HOME }}"
-gcloud_temp_dir: '/tmp/ansible-gcloud'
-google_account: "name@gmail.com"

@@ -1,5 +1,0 @@
-# test.yml
-# test playbook
-- hosts: all
-  roles:
-  - { role: '../../', gae_action: 'install', gae_language: 'python', gae_install_dir: '/home/vagrant' }
