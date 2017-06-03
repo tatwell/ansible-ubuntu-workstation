@@ -31,6 +31,18 @@ To run the playbook:
 ## Manual Steps
 After running the playbook, I still need to do the following tasks manually:
 
+- Reload the shell to enable updates:
+
+        source ~/.bashrc
+        source /etc/profile
+
+- Create default user postgresql database:
+
+        createdb
+
+        # Now you should be able to connect to postgres.
+        psql
+
 - On Jenkins server, add Python installations for the [Shining Panda plugin](https://wiki.jenkins-ci.org/display/JENKINS/ShiningPanda+Plugin):
   - Manage Jenkins > Global Tool Configuration > Python installations
   - Input following settings:

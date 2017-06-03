@@ -1,0 +1,4 @@
+---
+postgres_version: "9.5"
+db_admin: "{{ ansible_env.USER }}"
+db_pass:  "{{ database.password }}"

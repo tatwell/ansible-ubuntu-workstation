@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Ben Batschelet
+  description: Simple role to install and secure default version of PostgreSQL on Ubuntu
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  galaxy_tags:
+  - database
+  - sql
+  - postgres
+  - postgresql
+dependencies: []
