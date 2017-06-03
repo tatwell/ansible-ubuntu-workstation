@@ -5,6 +5,9 @@
     - postgresql-{{ postgres_version }}
     - postgresql-contrib-{{ postgres_version }}
     - python-psycopg2
+
+    # For pg gem
+    - libpq-dev
   become: yes
   register: postgres_install
 
