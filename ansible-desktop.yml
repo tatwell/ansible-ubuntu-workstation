@@ -8,7 +8,6 @@
 #   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev -v
 #
 ---
-
 - name: Ubuntu desktop environment playbook
   hosts: localhost
   roles:
@@ -44,6 +43,7 @@
 
     # Ruby / Rails
     - { role: zzet.rbenv }
+    - { role: bbatsche.PostgreSQL-Install, postgres_version: '9.5', tags: dev }
 
     # Jenkins Server
     - { role: geerlingguy.jenkins, become: true }

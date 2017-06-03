@@ -11,7 +11,7 @@
 
 - name: Require Password Authentication
   lineinfile:
-    name: /etc/postgresql/9.3/main/pg_hba.conf
+    name: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
     regexp: (local\s+all\s+{{ item }}\s+)peer
     line: \1md5
     state: present

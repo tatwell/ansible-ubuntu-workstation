@@ -5,6 +5,13 @@ aptcachetime: 3600
 locale: "en_US.UTF-8"
 timezone: "America/Los_Angeles"
 
+# Root Database Passwords
+# Roles: mysql57, PotgreSQL-Install
+database:
+  mysql_user: root
+  postgres_user: "{{ ansible_env.USER }}"
+  password: secret
+
 # Role: wiki
 wiki:
   # version is git branch
@@ -14,7 +21,7 @@ wiki:
   mysql_database: local_wiki
   admin_users: KlenwellAdmin
 
-  # These will need to be updated manually or using vault
+  # TODO: Remove. These will need to be updated manually or using vault.
   admin_email: TBA
   gmail_user: TBA
   gmail_password: TBA
