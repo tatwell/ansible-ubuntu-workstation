@@ -1,10 +1,10 @@
 ---
 rbenv:
-  env: system
-  version: v1.0.0
-  default_ruby: 2.3.3
+  env: user
+  version: v1.1.0
+  default_ruby: 2.4.1
   rubies:
-    - version: 2.3.3
+    - version: 2.4.1
 
 rbenv_clean_up: false
 
@@ -21,6 +21,7 @@ rbenv_plugins:
 
 rbenv_root: "{% if rbenv.env == 'system' %}/usr/local/rbenv{% else %}~/.rbenv{% endif %}"
 
-rbenv_users: []
+rbenv_users:
+  - "{{ ansible_env.USER }}"
 
 rbenv_extra_depends: []

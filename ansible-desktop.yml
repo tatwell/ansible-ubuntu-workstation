@@ -5,7 +5,7 @@
 # To run specific roles, add tag dev:
 #   - { role: wiki, tags: dev }
 # Then run playbook with --tags option:
-#   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev
+#   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev -v
 #
 ---
 
@@ -31,8 +31,8 @@
     - { role: ssh-keys }
 
     # Google App Engine / Python
-    - { role: avanov.pyenv, become: true, tags: dev }
-    - { role: maciejzasada.gae, gae_language: 'python', gae_version: "1.9.54", tags: dev }
+    - { role: avanov.pyenv, become: true }
+    - { role: maciejzasada.gae, gae_language: 'python', gae_version: "1.9.54" }
 
     # LAMP Server
     - { role: apache2, become: true }
@@ -43,6 +43,7 @@
     - { role: mysql57, become: true }
 
     # Ruby / Rails
+    - { role: zzet.rbenv }
 
     # Jenkins Server
     - { role: geerlingguy.jenkins, become: true }
@@ -50,6 +51,9 @@
 
     # Personal Wiki
     - { role: wiki }
+
+    # Epilogue
+    - { role: afterword }
 
     # Unused Roles
     # Common roles

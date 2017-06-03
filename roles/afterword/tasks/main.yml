@@ -1,0 +1,7 @@
+#
+# Share some final thoughts.
+#
+---
+- name: Afterword
+  debug:
+    msg: "*** Don't forget to review Manual Steps section in README. ***"
