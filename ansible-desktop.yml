@@ -27,7 +27,7 @@
 
     # Developer
     - { role: home-sweet-home }
-    - { role: ssh-keys }
+    - { role: ssh-keys, tags: dev }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -43,7 +43,7 @@
 
     # Ruby / Rails
     - { role: zzet.rbenv }
-    - { role: bbatsche.PostgreSQL-Install, postgres_version: '9.5', tags: dev }
+    - { role: bbatsche.PostgreSQL-Install, postgres_version: '9.5' }
 
     # Jenkins Server
     - { role: geerlingguy.jenkins, become: true }

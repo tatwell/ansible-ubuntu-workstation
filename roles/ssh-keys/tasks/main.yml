@@ -10,6 +10,7 @@
     - github-klenwell
     - github-tatwell
     - bitbucket-klenwell
+    - bitbucket-tatwell
   # Only run if file does not exist (i.e. creates returns true)
   args:
       creates: "{{ ansible_env.HOME }}/.ssh/{{ item }}"

@@ -1,6 +1,8 @@
 #
 # SSH Keys for Multiple Accounts
 #
+# NOTE: This file should be updated using Ansible role: ssh-keys
+#
 # References
 # - https://stackoverflow.com/questions/3860112
 # - http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
@@ -39,3 +41,8 @@ Host bitbucket-klenwell
   HostName bitbucket.org
   User klenwell
   IdentityFile ~/.ssh/bitbucket-klenwell
+
+Host bitbucket-tatwell
+  HostName bitbucket.org
+  User tatwell
+  IdentityFile ~/.ssh/bitbucket-tatwell
