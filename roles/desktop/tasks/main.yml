@@ -7,6 +7,7 @@
     - easytag # audio files metadata management
     - byzanz # screen recording
     - geany
+    - libimage-exiftool-perl  # Removes exif data. See https://askubuntu.com/q/260810/46766.
     - libnotify-bin
     - inotify-tools
     - meld # Diff / merge tool

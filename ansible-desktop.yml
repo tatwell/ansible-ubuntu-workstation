@@ -17,7 +17,7 @@
     - { role: phantomjs, become: true }
 
     # Desktop
-    - { role: desktop, become: true }
+    - { role: desktop, become: true, tags: dev }
     - { role: desktop-cleanup, become: true }
     - { role: desktop-preferences-unity }
     - { role: desktop-autostart, become: true }
@@ -43,7 +43,7 @@
 
     # Ruby / Rails
     - { role: zzet.rbenv }
-    - { role: bbatsche.PostgreSQL-Install, postgres_version: '9.5', tags: dev }
+    - { role: bbatsche.PostgreSQL-Install, postgres_version: '9.5' }
 
     # Jenkins Server
     - { role: geerlingguy.jenkins, become: true }
