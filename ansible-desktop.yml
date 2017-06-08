@@ -27,7 +27,7 @@
 
     # Developer
     - { role: home-sweet-home }
-    - { role: ssh-keys }
+    - { role: ssh-keys, tags: dev }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
