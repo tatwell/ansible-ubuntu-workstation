@@ -18,10 +18,11 @@
 
     # Desktop
     - { role: desktop, become: true, tags: dev }
-    - { role: desktop-cleanup, become: true }
-    - { role: desktop-preferences-unity }
-    - { role: desktop-autostart, become: true }
+    - { role: desktop-cleanup, become: true, tags: dev }
+    - { role: desktop-preferences-unity, tags: dev }
+    - { role: desktop-autostart, become: true , tags: dev}
     - { role: atom, become: true }
+    - { role: firefox, become: true, tags: dev }
     - { role: google-chrome, become: true }
     - { role: gimp, become: true }
 
@@ -53,7 +54,7 @@
     - { role: wiki }
 
     # Epilogue
-    - { role: afterword }
+    - { role: afterword, tags: dev }
 
     # Unused Roles
     # Common roles
@@ -95,7 +96,6 @@
     # - { role: copyq, become: true }
     # - { role: dbeaver, become: true }
     # - { role: filezilla, become: true }
-    # - { role: firefox, become: true }
     # - { role: flatabulous, become: true }
     # - { role: gdrive, become: true }
     # - { role: geary, become: true }
