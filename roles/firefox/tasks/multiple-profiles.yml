@@ -1,0 +1,32 @@
+#
+# Set up profile manager.
+# Based on https://askubuntu.com/questions/660147/how-can-i-use-two-firefox-profiles
+#
+---
+- name: Copy original Firefox launcher file
+  copy:
+    src: /usr/share/applications/firefox.desktop
+    dest: "{{ ansible_env.HOME }}/.local/share/applications/firefox.desktop"
+    force: no
+
+- name: Add new context menu action identifiers
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.local/share/applications/firefox.desktop"
+    regexp: '^Actions=NewWindow'
+    line: 'Actions=NewWindow;NewPrivateWindow;default;ProfileManager;'
+
+- name: Add desktop action blocks
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.local/share/applications/firefox.desktop"
+    backup: yes
+    block: |
+      [Desktop Action ProfileManager]
+      Name=Open Firefox profile manager
+      Exec=firefox -ProfileManager
+      OnlyShowIn=Unity;
+
+- name: Set permanent default profile
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.local/share/applications/firefox.desktop"
+    regexp: '^Exec=firefox'
+    line: 'Exec=firefox -P default %u'
