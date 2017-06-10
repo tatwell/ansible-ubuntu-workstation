@@ -28,5 +28,5 @@
 - name: Set permanent default profile
   lineinfile:
     path: "{{ ansible_env.HOME }}/.local/share/applications/firefox.desktop"
-    regexp: '^Exec=firefox'
+    regexp: '^Exec=firefox %u'
     line: 'Exec=firefox -P default %u'
