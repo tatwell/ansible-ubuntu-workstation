@@ -60,9 +60,6 @@
     - { role: afterword, tags: dev }
 
     # Unused Roles
-    # Common roles
-    # - { role: projects-installer }
-
     # Server roles
     # - { role: beanstalkd, become: true }
     # - { role: blackfire, become: true }
