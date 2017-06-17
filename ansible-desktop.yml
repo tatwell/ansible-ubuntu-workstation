@@ -61,7 +61,6 @@
 
     # Unused Roles
     # Common roles
-    # - { role: dotfiles, become: true }
     # - { role: projects-installer }
 
     # Server roles
