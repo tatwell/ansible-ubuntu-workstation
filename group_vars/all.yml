@@ -39,6 +39,7 @@ desktop_autostart:
     - orca-autostart.desktop
     - vino-server.desktop
 
+# Original Settings
 chromium:
   set_default: true
   policy: false
