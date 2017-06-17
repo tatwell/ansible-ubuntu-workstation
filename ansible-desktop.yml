@@ -67,7 +67,6 @@
     # Unused Roles
     # Desktop roles
     # - { role: chromium, become: true }
-    # - { role: dbeaver, become: true }
     # - { role: filezilla, become: true }
     # - { role: flatabulous, become: true }
     # - { role: gdrive, become: true }
