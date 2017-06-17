@@ -36,6 +36,7 @@
     # - { role: memcached, become: true }
     # - { role: nodejs, become: true }
     # - { role: redis, become: true }
+    # - { role: filezilla, become: true }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -67,8 +68,6 @@
     # Unused Roles
     # Desktop roles
     # - { role: chromium, become: true }
-    # - { role: filezilla, become: true }
-    # - { role: flatabulous, become: true }
     # - { role: gdrive, become: true }
     # - { role: geary, become: true }
     # - { role: grub-customizer, become: true }
