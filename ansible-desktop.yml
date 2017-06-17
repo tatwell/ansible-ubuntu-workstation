@@ -27,7 +27,10 @@
     - { role: atom, become: true }
     - { role: firefox, become: true }
     - { role: google-chrome, become: true }
+    # - { role: chromium, become: true }
     - { role: gimp, become: true }
+    # - { role: indicator-sysmonitor, become: true }
+    # - { role: libreoffice, become: true }
     # - { role: gdrive, become: true }
 
     # Developer
@@ -68,10 +71,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: chromium, become: true }
-    # - { role: indicator-sysmonitor, become: true }
-    # - { role: ksuperkey, become: true }
-    # - { role: libreoffice, become: true }
     # - { role: maim, become: true }
     # - { role: min, become: true }
     # - { role: mysql-workbench, become: true }
