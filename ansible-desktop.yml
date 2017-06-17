@@ -32,6 +32,7 @@
     # - { role: indicator-sysmonitor, become: true }
     # - { role: libreoffice, become: true }
     # - { role: gdrive, become: true }
+    # - { role: maim, become: true }
 
     # Developer
     - { role: home-sweet-home }
@@ -41,7 +42,7 @@
     # - { role: nodejs, become: true }
     # - { role: redis, become: true }
     # - { role: filezilla, become: true }
-    # - { role: maim, become: true }
+    # - { role: mysql-workbench, become: true }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -72,8 +73,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: mysql-workbench, become: true }
-    # - { role: nautilus-plugins, become: true }
     # - { role: nemo, become: true }
     # - { role: notepadqq, become: true }
     # - { role: notify-osd, become: true }
