@@ -69,7 +69,6 @@
     # Unused Roles
     # Desktop roles
     # - { role: chromium, become: true }
-    # - { role: hubic, become: true }
     # - { role: indicator-sysmonitor, become: true }
     # - { role: ksuperkey, become: true }
     # - { role: libreoffice, become: true }
