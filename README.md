@@ -52,6 +52,12 @@ After running the playbook, I still need to do the following tasks manually:
 
 - As `jenkins` user, update password settings in `/var/lib/jenkins/.env/local-wiki.env`.
 
+- Configure backups:
+  - System Settings > Backups > Install
+  - Configure settings (menu on left of settings dialog)
+  - Turn on backups (toggle switch in upper right of dialog to ON)
+  - For an automated approach, see [these roles in Galaxy](https://galaxy.ansible.com/list#/roles?page=1&page_size=10&autocomplete=duplicity&order=-download_count,name).
+
 
 ## Roles
 
