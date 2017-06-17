@@ -64,8 +64,6 @@
 
     # Unused Roles
     # Server roles
-    # - { role: nginx, become: true }
-    # - { role: nginx-php-fpm, become: true }
     # - { role: nodejs, become: true }
     # - { role: python, become: true }
     # - { role: redis, become: true }
