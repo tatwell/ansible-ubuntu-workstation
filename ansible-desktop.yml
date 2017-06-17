@@ -66,8 +66,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: adapta-theme, become: true }
-    # - { role: albert, become: true }
     # - { role: altyo, become: true }
     # - { role: arc-theme, become: true }
     # - { role: chromium, become: true }
