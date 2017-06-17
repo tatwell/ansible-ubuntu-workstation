@@ -33,6 +33,7 @@
     - { role: home-sweet-home }
     - { role: ssh-keys }
     # - { role: docker, become: true }
+    # - { role: memcached, become: true }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -63,8 +64,6 @@
 
     # Unused Roles
     # Server roles
-    # - { role: memcached, become: true }
-    # - { role: mysql56, become: true }
     # - { role: nginx, become: true }
     # - { role: nginx-php-fpm, become: true }
     # - { role: nodejs, become: true }
