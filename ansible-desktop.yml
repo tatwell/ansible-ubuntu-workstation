@@ -14,7 +14,7 @@
   hosts: localhost
   roles:
     # Common
-    - { role: locales, become: true, tags: dev }
+    - { role: locales, become: true }
     - { role: common, become: true }
     - { role: java-openjdk, become: true }
     - { role: phantomjs, become: true }
@@ -61,7 +61,6 @@
 
     # Unused Roles
     # Server roles
-    # - { role: beanstalkd, become: true }
     # - { role: blackfire, become: true }
     # - { role: composer, become: true }
     # - { role: docker, become: true }
