@@ -7,22 +7,25 @@
 # Then run playbook with --tags option:
 #   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev -v
 #
+# Source: https://github.com/Benoth/ansible-ubuntu/blob/1786382/ansible-desktop.yml
+#
 ---
 - name: Ubuntu desktop environment playbook
   hosts: localhost
   roles:
     # Common
+    - { role: locales, become: true, tags: dev }
     - { role: common, become: true }
     - { role: java-openjdk, become: true }
     - { role: phantomjs, become: true }
 
     # Desktop
-    - { role: desktop, become: true, tags: dev }
-    - { role: desktop-cleanup, become: true, tags: dev }
-    - { role: desktop-preferences-unity, tags: dev }
-    - { role: desktop-autostart, become: true , tags: dev}
+    - { role: desktop, become: true }
+    - { role: desktop-cleanup, become: true }
+    - { role: desktop-preferences-unity }
+    - { role: desktop-autostart, become: true }
     - { role: atom, become: true }
-    - { role: firefox, become: true, tags: dev }
+    - { role: firefox, become: true }
     - { role: google-chrome, become: true }
     - { role: gimp, become: true }
 
@@ -58,7 +61,6 @@
 
     # Unused Roles
     # Common roles
-    # - { role: locales, become: true }
     # - { role: zsh, become: true }
     # - { role: dotfiles, become: true }
     # - { role: projects-installer }
