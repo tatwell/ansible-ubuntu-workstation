@@ -73,7 +73,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: notify-osd, become: true }
     # - { role: qutebrowser, become: true }
     # - { role: remarkable, become: true }
     # - { role: remmina, become: true }
