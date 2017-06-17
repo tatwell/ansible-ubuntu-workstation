@@ -61,7 +61,6 @@
 
     # Unused Roles
     # Server roles
-    # - { role: blackfire, become: true }
     # - { role: composer, become: true }
     # - { role: docker, become: true }
     # - { role: elasticsearch, become: true }
