@@ -73,7 +73,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: nemo, become: true }
     # - { role: notepadqq, become: true }
     # - { role: notify-osd, become: true }
     # - { role: qutebrowser, become: true }
