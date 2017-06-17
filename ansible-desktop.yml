@@ -33,6 +33,7 @@
     # - { role: libreoffice, become: true }
     # - { role: gdrive, become: true }
     # - { role: maim, become: true }
+    # - { role: remarkable, become: true }  # Markdown Editor
 
     # Developer
     - { role: home-sweet-home }
@@ -43,6 +44,8 @@
     # - { role: redis, become: true }
     # - { role: filezilla, become: true }
     # - { role: mysql-workbench, become: true }
+    # - { role: remmina, become: true }     # Remote Desktop Client
+
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -73,9 +76,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: remarkable, become: true }
-    # - { role: remmina, become: true }
-    # - { role: ripgrep, become: true }
     # - { role: rofi, become: true }
     # - { role: shutter, become: true }
     # - { role: sift, become: true }
