@@ -41,6 +41,7 @@
     # - { role: nodejs, become: true }
     # - { role: redis, become: true }
     # - { role: filezilla, become: true }
+    # - { role: maim, become: true }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -71,8 +72,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: maim, become: true }
-    # - { role: min, become: true }
     # - { role: mysql-workbench, become: true }
     # - { role: nautilus-plugins, become: true }
     # - { role: nemo, become: true }
