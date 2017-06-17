@@ -66,8 +66,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: altyo, become: true }
-    # - { role: arc-theme, become: true }
     # - { role: chromium, become: true }
     # - { role: claws-mail, become: true }
     # - { role: compton, become: true }
