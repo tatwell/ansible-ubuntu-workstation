@@ -65,9 +65,6 @@
     - { role: afterword, tags: dev }
 
     # Unused Roles
-    # Server roles
-    # - { role: ssh-server, become: true }
-
     # Desktop roles
     # - { role: adapta-theme, become: true }
     # - { role: albert, become: true }
