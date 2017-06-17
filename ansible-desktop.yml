@@ -67,7 +67,6 @@
     # Unused Roles
     # Desktop roles
     # - { role: chromium, become: true }
-    # - { role: compton, become: true }
     # - { role: copyq, become: true }
     # - { role: dbeaver, become: true }
     # - { role: filezilla, become: true }
