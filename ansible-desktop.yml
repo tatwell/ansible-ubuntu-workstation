@@ -56,6 +56,7 @@
     # - { role: skype, become: true }
 
     # Google App Engine / Python
+    - { role: python, become: true }        # Required by atom Role
     - { role: avanov.pyenv, become: true }
     - { role: maciejzasada.gae, gae_language: 'python', gae_version: "1.9.54" }
 
