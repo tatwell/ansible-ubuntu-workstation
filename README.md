@@ -58,6 +58,9 @@ After running the playbook, I still need to do the following tasks manually:
   - Turn on backups (toggle switch in upper right of dialog to ON)
   - For an automated approach, see [these roles in Galaxy](https://galaxy.ansible.com/list#/roles?page=1&page_size=10&autocomplete=duplicity&order=-download_count,name).
 
+- Move existing VirtualBox VMs:
+  - See this thread: https://superuser.com/q/633431
+
 
 ## Roles
 
