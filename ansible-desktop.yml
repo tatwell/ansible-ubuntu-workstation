@@ -24,7 +24,7 @@
     - { role: desktop-cleanup, become: true }
     - { role: desktop-preferences-unity }
     - { role: desktop-autostart, become: true }
-    - { role: indicator-sysmonitor, become: true, tags: dev }
+    - { role: indicator-sysmonitor, become: true }
     - { role: atom, become: true }
     - { role: firefox, become: true }
     - { role: google-chrome, become: true }
@@ -40,6 +40,7 @@
     # Developer
     - { role: home-sweet-home }
     - { role: ssh-keys }
+    - { role: kylebebak.tmux, tags: dev }
     - { role: virtualbox, become: true }
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }
@@ -67,7 +68,7 @@
     - { role: php-phar-tools, become: true }
     - { role: apache2-php, become: true }
     - { role: mysql57, become: true }
-    - { role: composer, become: true, tags: dev }
+    - { role: composer, become: true }
 
     # Ruby / Rails
     - { role: zzet.rbenv }

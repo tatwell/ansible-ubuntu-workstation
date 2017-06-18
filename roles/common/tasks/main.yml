@@ -56,7 +56,6 @@
     - sshfs
     - sshpass
     - tar
-    - tmux
     - trash-cli
     - tig
     - unzip
