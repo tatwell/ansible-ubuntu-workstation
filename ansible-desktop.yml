@@ -78,8 +78,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: thunderbird, become: true }
-    # - { role: ultra-flat-icons, become: true }
     # - { role: urxvt-perls }
     # - { role: vagrant, become: true }
     # - { role: vokoscreen, become: true }
