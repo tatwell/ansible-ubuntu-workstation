@@ -79,14 +79,6 @@
     - { role: afterword, tags: dev }
 
     # Unused Roles
-    # Desktop roles
-    # - { role: xmind, become: true }
-
-    # bspwm
-    # - { role: sxhkd, become: true }
-    # - { role: bspwm, become: true }
-    # - { role: bspwm-panel, become: true }
-    # - { role: bspwm-environment, become: true }
 
     # User roles
     # - { role: gulp}
