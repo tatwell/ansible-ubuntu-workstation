@@ -60,6 +60,7 @@ After running the playbook, I still need to do the following tasks manually:
 
 - Move existing VirtualBox VMs:
   - See this thread: https://superuser.com/q/633431
+  - If you get an error copying VM files because they are too large, see [this article](http://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu).
 
 
 ## Roles
