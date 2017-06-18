@@ -29,10 +29,10 @@
     - { role: google-chrome, become: true }
     # - { role: chromium, become: true }
     - { role: gimp, become: true }
+    # - { role: shutter, become: true }     # Screenshot tool
     # - { role: indicator-sysmonitor, become: true }
     # - { role: libreoffice, become: true }
     # - { role: gdrive, become: true }
-    # - { role: maim, become: true }
     # - { role: remarkable, become: true }  # Markdown Editor
 
     # Developer
@@ -76,8 +76,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: rofi, become: true }
-    # - { role: shutter, become: true }
     # - { role: sift, become: true }
     # - { role: slop, become: true }
     # - { role: skype, become: true }
