@@ -38,6 +38,7 @@
     # Developer
     - { role: home-sweet-home }
     - { role: ssh-keys }
+    # - { role: virtualbox, become: true }
     # - { role: docker, become: true }
     # - { role: memcached, become: true }
     # - { role: nodejs, become: true }
@@ -45,7 +46,7 @@
     # - { role: filezilla, become: true }
     # - { role: mysql-workbench, become: true }
     # - { role: remmina, become: true }     # Remote Desktop Client
-
+    # - { role: skype, become: true }
 
     # Google App Engine / Python
     - { role: avanov.pyenv, become: true }
@@ -76,9 +77,7 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: sift, become: true }
     # - { role: slop, become: true }
-    # - { role: skype, become: true }
     # - { role: smartgit, become: true }
     # - { role: spotify, become: true }
     # - { role: sublime3, become: true }
@@ -88,7 +87,6 @@
     # - { role: ultra-flat-icons, become: true }
     # - { role: urxvt-perls }
     # - { role: vagrant, become: true }
-    # - { role: virtualbox, become: true }
     # - { role: vokoscreen, become: true }
     # - { role: wine, become: true }
     # - { role: workrave, become: true }
