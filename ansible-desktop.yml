@@ -7,30 +7,56 @@
 # Then run playbook with --tags option:
 #   ansible-playbook ansible-desktop.yml --ask-become-pass --tags dev -v
 #
+# Source: https://github.com/Benoth/ansible-ubuntu/blob/1786382/ansible-desktop.yml
+#
 ---
 - name: Ubuntu desktop environment playbook
   hosts: localhost
   roles:
     # Common
-    - { role: common, become: true }
+    - { role: locales, become: true }
+    - { role: common, become: true, tags: dev }
     - { role: java-openjdk, become: true }
     - { role: phantomjs, become: true }
 
     # Desktop
-    - { role: desktop, become: true, tags: dev }
-    - { role: desktop-cleanup, become: true, tags: dev }
-    - { role: desktop-preferences-unity, tags: dev }
-    - { role: desktop-autostart, become: true , tags: dev}
+    - { role: desktop, become: true }
+    - { role: desktop-cleanup, become: true }
+    - { role: desktop-preferences-unity }
+    - { role: desktop-autostart, become: true }
+    - { role: indicator-sysmonitor, become: true, tags: dev }
     - { role: atom, become: true }
-    - { role: firefox, become: true, tags: dev }
+    - { role: firefox, become: true }
     - { role: google-chrome, become: true }
+    - { role: chromium, become: true }
     - { role: gimp, become: true }
+    # - { role: shutter, become: true }     # Screenshot Tool
+    # - { role: libreoffice, become: true }
+    # - { role: gdrive, become: true }
+    # - { role: remarkable, become: true }  # Markdown Editor
+    # - { role: spotify, become: true }
+    # - { role: vokoscreen, become: true }  # Screencast Creator
 
     # Developer
     - { role: home-sweet-home }
-    - { role: ssh-keys, tags: dev }
+    - { role: ssh-keys }
+    - { role: virtualbox, become: true }
+    # - { role: docker, become: true }
+    # - { role: vagrant, become: true }
+    # - { role: nodejs, become: true }
+    # - { role: gulp }                      # JS Automation Tool
+    # - { role: bower }                     # JS Package Manager
+    # - { role: webpack }                   # JS Asset Bundler
+    # - { role: memcached, become: true }
+    # - { role: redis, become: true }
+    # - { role: filezilla, become: true }
+    # - { role: mysql-workbench, become: true }
+    # - { role: remmina, become: true }     # Remote Desktop Client
+    # - { role: browsersync }               # Browser Testing Tool
+    # - { role: skype, become: true }
 
     # Google App Engine / Python
+    - { role: python, become: true }        # Required by atom Role
     - { role: avanov.pyenv, become: true }
     - { role: maciejzasada.gae, gae_language: 'python', gae_version: "1.9.54" }
 
@@ -41,6 +67,7 @@
     - { role: php-phar-tools, become: true }
     - { role: apache2-php, become: true }
     - { role: mysql57, become: true }
+    - { role: composer, become: true, tags: dev }
 
     # Ruby / Rails
     - { role: zzet.rbenv }
@@ -55,95 +82,3 @@
 
     # Epilogue
     - { role: afterword, tags: dev }
-
-    # Unused Roles
-    # Common roles
-    # - { role: locales, become: true }
-    # - { role: zsh, become: true }
-    # - { role: dotfiles, become: true }
-    # - { role: projects-installer }
-
-    # Server roles
-    # - { role: beanstalkd, become: true }
-    # - { role: blackfire, become: true }
-    # - { role: composer, become: true }
-    # - { role: docker, become: true }
-    # - { role: elasticsearch, become: true }
-    # - { role: exim, become: true }
-    # - { role: fail2ban, become: true }
-    # - { role: gvm, become: true }
-    # - { role: hhvm, become: true }
-    # - { role: mailcatcher, become: true }
-    # - { role: mailhog, become: true }
-    # - { role: memcached, become: true }
-    # - { role: mysql56, become: true }
-    # - { role: nginx, become: true }
-    # - { role: nginx-php-fpm, become: true }
-    # - { role: nodejs, become: true }
-    # - { role: python, become: true }
-    # - { role: redis, become: true }
-    # - { role: rbenv, become: true }
-    # - { role: ssh-server, become: true }
-
-    # Desktop roles
-    # - { role: adapta-theme, become: true }
-    # - { role: albert, become: true }
-    # - { role: altyo, become: true }
-    # - { role: arc-theme, become: true }
-    # - { role: chromium, become: true }
-    # - { role: claws-mail, become: true }
-    # - { role: compton, become: true }
-    # - { role: copyq, become: true }
-    # - { role: dbeaver, become: true }
-    # - { role: filezilla, become: true }
-    # - { role: flatabulous, become: true }
-    # - { role: gdrive, become: true }
-    # - { role: geary, become: true }
-    # - { role: grub-customizer, become: true }
-    # - { role: hubic, become: true }
-    # - { role: indicator-sysmonitor, become: true }
-    # - { role: ksuperkey, become: true }
-    # - { role: libreoffice, become: true }
-    # - { role: maim, become: true }
-    # - { role: min, become: true }
-    # - { role: mysql-workbench, become: true }
-    # - { role: nautilus-plugins, become: true }
-    # - { role: nemo, become: true }
-    # - { role: notepadqq, become: true }
-    # - { role: notify-osd, become: true }
-    # - { role: qutebrowser, become: true }
-    # - { role: remarkable, become: true }
-    # - { role: remmina, become: true }
-    # - { role: ripgrep, become: true }
-    # - { role: rofi, become: true }
-    # - { role: shutter, become: true }
-    # - { role: sift, become: true }
-    # - { role: slop, become: true }
-    # - { role: skype, become: true }
-    # - { role: smartgit, become: true }
-    # - { role: spotify, become: true }
-    # - { role: sublime3, become: true }
-    # - { role: sunflower, become: true }
-    # - { role: teamviewer, become: true }
-    # - { role: thunderbird, become: true }
-    # - { role: ultra-flat-icons, become: true }
-    # - { role: urxvt-perls }
-    # - { role: vagrant, become: true }
-    # - { role: virtualbox, become: true }
-    # - { role: vokoscreen, become: true }
-    # - { role: wine, become: true }
-    # - { role: workrave, become: true }
-    # - { role: xfce-dockbarx, become: true }
-    # - { role: xmind, become: true }
-
-    # bspwm
-    # - { role: sxhkd, become: true }
-    # - { role: bspwm, become: true }
-    # - { role: bspwm-panel, become: true }
-    # - { role: bspwm-environment, become: true }
-
-    # User roles
-    # - { role: gulp}
-    # - { role: browsersync }
-    # - { role: bower }
-    # - { role: webpack }

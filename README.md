@@ -58,6 +58,11 @@ After running the playbook, I still need to do the following tasks manually:
   - Turn on backups (toggle switch in upper right of dialog to ON)
   - For an automated approach, see [these roles in Galaxy](https://galaxy.ansible.com/list#/roles?page=1&page_size=10&autocomplete=duplicity&order=-download_count,name).
 
+- Move existing VirtualBox VMs:
+  - See this thread: https://superuser.com/q/633431
+  - If you get an error copying VM files because they are too large, see [this article](http://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu).
+  - After copying and adding VM, update shared folder under Settings.
+
 
 ## Roles
 
