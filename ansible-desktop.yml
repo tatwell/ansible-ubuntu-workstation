@@ -29,18 +29,20 @@
     - { role: google-chrome, become: true }
     # - { role: chromium, become: true }
     - { role: gimp, become: true }
-    # - { role: shutter, become: true }     # Screenshot tool
+    # - { role: shutter, become: true }     # Screenshot Tool
     # - { role: indicator-sysmonitor, become: true }
     # - { role: libreoffice, become: true }
     # - { role: gdrive, become: true }
     # - { role: remarkable, become: true }  # Markdown Editor
     # - { role: spotify, become: true }
+    # - { role: vokoscreen, become: true }  # Screencast Creator
 
     # Developer
     - { role: home-sweet-home }
     - { role: ssh-keys }
     # - { role: virtualbox, become: true }
     # - { role: docker, become: true }
+    # - { role: vagrant, become: true }
     # - { role: memcached, become: true }
     # - { role: nodejs, become: true }
     # - { role: redis, become: true }
@@ -78,9 +80,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: vagrant, become: true }
-    # - { role: vokoscreen, become: true }
-    # - { role: wine, become: true }
     # - { role: workrave, become: true }
     # - { role: xfce-dockbarx, become: true }
     # - { role: xmind, become: true }
