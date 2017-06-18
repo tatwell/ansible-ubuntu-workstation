@@ -44,7 +44,7 @@
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }
     # - { role: nodejs, become: true }
-    # - { role: gulp }
+    # - { role: gulp }                      # JS Automation Tool
     # - { role: bower }                     # JS Package Manager
     # - { role: webpack }                   # JS Asset Bundler
     # - { role: memcached, become: true }
