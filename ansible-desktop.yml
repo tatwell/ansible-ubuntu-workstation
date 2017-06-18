@@ -24,7 +24,7 @@
     - { role: desktop-cleanup, become: true }
     - { role: desktop-preferences-unity }
     - { role: desktop-autostart, become: true }
-    # - { role: indicator-sysmonitor, become: true }
+    - { role: indicator-sysmonitor, become: true, tags: dev }
     - { role: atom, become: true }
     - { role: firefox, become: true }
     - { role: google-chrome, become: true }
@@ -40,7 +40,7 @@
     # Developer
     - { role: home-sweet-home }
     - { role: ssh-keys }
-    - { role: virtualbox, become: true, tags: dev }
+    - { role: virtualbox, become: true }
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }
     # - { role: nodejs, become: true }
