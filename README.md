@@ -63,6 +63,9 @@ After running the playbook, I still need to do the following tasks manually:
   - If you get an error copying VM files because they are too large, see [this article](http://www.wikihow.com/Format-a-USB-Flash-Drive-in-Ubuntu).
   - After copying and adding VM, update shared folder under Settings.
 
+- tmux
+ - To install plugins: `tmux` > CTRL-B > I
+
 
 ## Roles
 

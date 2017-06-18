@@ -54,3 +54,7 @@
   template:
     src: ".tmux.conf.j2"
     dest: "{{ home_path }}/.tmux.conf"
+
+# Reload tmux environment: https://github.com/tmux-plugins/tpm
+- name: Reload tmux.conf
+  command: tmux source "{{ home_path }}/.tmux.conf"

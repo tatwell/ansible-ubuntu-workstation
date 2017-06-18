@@ -11,10 +11,10 @@ set -g history-limit 10000
 set -s escape-time 1
 
 # el índice de las windows empieza en 1
-set -g base-index 1
+#set -g base-index 1
 
 # el índice de los panes empieza en 1
-set -g pane-base-index 1
+#set -g pane-base-index 1
 
 # ctrl-b r recarga el archivo de configuración de tmux
 bind r source-file ~/.tmux.conf \; display ".tmux.conf reloaded"
@@ -117,8 +117,8 @@ bind-key -n S-Left previous-window
 bind-key -n S-Right next-window
 
 
-# enable mouse scroll, this works for ubuntu 14.04 tmux 1.8
-set -g mode-mouse on
+# enable mouse scroll
+set -g mouse on
 
 
 # tmux plugins
