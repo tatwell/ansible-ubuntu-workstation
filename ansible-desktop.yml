@@ -78,7 +78,6 @@
 
     # Unused Roles
     # Desktop roles
-    # - { role: urxvt-perls }
     # - { role: vagrant, become: true }
     # - { role: vokoscreen, become: true }
     # - { role: wine, become: true }
