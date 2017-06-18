@@ -27,7 +27,7 @@
     - { role: atom, become: true }
     - { role: firefox, become: true }
     - { role: google-chrome, become: true }
-    # - { role: chromium, become: true }
+    - { role: chromium, become: true, tags: dev }
     - { role: gimp, become: true }
     # - { role: shutter, become: true }     # Screenshot Tool
     # - { role: indicator-sysmonitor, become: true }
