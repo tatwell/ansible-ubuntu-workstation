@@ -21,14 +21,6 @@ wiki:
   mysql_database: local_wiki
   admin_users: KlenwellAdmin
 
-  # TODO: Remove. These will need to be updated manually or using vault.
-  admin_email: TBA
-  gmail_user: TBA
-  gmail_password: TBA
-  recaptcha_domain: TBA
-  rc_public_key: TBA
-  rc_private_key: TBA
-
 # Role: apache2-php
 vhosts:
   - template: standard
