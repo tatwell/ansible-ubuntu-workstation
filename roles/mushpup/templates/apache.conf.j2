@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+  DocumentRoot "/var/www/html/mushpup"
+  ServerName mushpup
+  
+  <Directory "/var/www/html/mushpup">
+    Options Indexes FollowSymLinks Multiviews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+  </Directory>
+</VirtualHost>
