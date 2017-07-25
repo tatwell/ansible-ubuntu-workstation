@@ -40,7 +40,7 @@
     # Developer
     - { role: home-sweet-home }
     - { role: ssh-keys }
-    - { role: kylebebak.tmux, tags: dev }
+    - { role: kylebebak.tmux }
     - { role: virtualbox, become: true }
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }
@@ -78,8 +78,9 @@
     - { role: geerlingguy.jenkins, become: true }
     - { role: jenkins-pyenv, become: true }
 
-    # Personal Wiki
+    # Personal Local Sites
     - { role: wiki }
+    - { role: mushpup, become: true, tags: dev }
 
     # Epilogue
     - { role: afterword, tags: dev }
