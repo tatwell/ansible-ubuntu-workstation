@@ -1,0 +1,9 @@
+#
+# To run playbook:
+#   ansible-playbook roles/mushpup/playbook.yml --ask-become-pass
+#
+---
+- name: Individual Mushpup Role
+  hosts: localhost
+  roles:
+    - { role: mushpup, become: true, tags: dev }
