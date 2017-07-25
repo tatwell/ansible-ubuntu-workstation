@@ -40,7 +40,7 @@
     # Developer
     - { role: home-sweet-home }
     - { role: ssh-keys }
-    - { role: kylebebak.tmux, tags: dev }
+    - { role: kylebebak.tmux }
     - { role: virtualbox, become: true }
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }

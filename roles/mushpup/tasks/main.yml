@@ -12,26 +12,22 @@
     src: index.html.j2
     dest: "/var/www/mushpup/index.html"
     mode: 0644
-  become: true
 
 - name: Set up local virtual host for Apache
   template:
     src: apache.conf.j2
     dest: "/etc/apache2/sites-available/mushpup.conf"
-  become: true
 
-- name: Enable wiki virtual host
+- name: Enable wiki mushpup host
   shell: "a2ensite mushpup.conf"
   notify: Restart Apache2
-  become: true
 
-- name: Add wiki to /etc/hosts
+- name: Add mushpup to /etc/hosts
   lineinfile:
     dest: /etc/hosts
     regexp: '^127\.0\.0\.1     mushpup'
     line: '127.0.0.1     mushpup'
     state: present
-  become: true
 
 - name: Mushpup announcement
   debug: msg="Mushpup setup complete. See http://mushpup/."
