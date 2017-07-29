@@ -21,6 +21,15 @@ wiki:
   mysql_database: local_wiki
   admin_users: KlenwellAdmin
 
+# Role: gmailx
+# To set password, copy role dist vars file and update:
+# cp -v roles/gmailx/vars/gmail.yml{-dist,}
+gmailx:
+  user: "SET HERE OR IN roles/gmailx/vars/gmail.yml"
+  password: "SET IN roles/gmailx/vars/gmail.yml"
+  notify: true
+  notified_email: "SET HERE OR IN roles/gmailx/vars/gmail.yml"
+
 # Role: apache2-php
 vhosts:
   - template: standard
