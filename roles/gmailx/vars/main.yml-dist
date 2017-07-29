@@ -1,0 +1,14 @@
+#
+# Copy then update this file:
+# cp -v roles/gmailx/vars/gmail.yml{-dist,}
+#
+---
+gmailx:
+  # Login credentials for gmail account to send email from command line.
+  # It is recommend that set up a special account for this.
+  user: TBA
+  password: TBA
+
+  # Whether to send email when playbook complete and where to send it
+  notify: false
+  notified_email: TBA

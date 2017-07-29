@@ -23,12 +23,9 @@ wiki:
 
 # Role: gmailx
 # To set password, copy role dist vars file and update:
-# cp -v roles/gmailx/vars/gmail.yml{-dist,}
+# cp -v roles/gmailx/vars/main.yml{-dist,}
 gmailx:
-  user: "SET HERE OR IN roles/gmailx/vars/gmail.yml"
-  password: "SET IN roles/gmailx/vars/gmail.yml"
-  notify: true
-  notified_email: "SET HERE OR IN roles/gmailx/vars/gmail.yml"
+  see: roles/gmailx/vars/main.yml
 
 # Role: apache2-php
 vhosts:

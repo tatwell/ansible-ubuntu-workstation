@@ -1,9 +1,0 @@
-#
-# Copy then update this file:
-# cp -v roles/gmailx/vars/gmail.yml{-dist,}
-#
----
-gmailx:
-  user: TBA
-  password: TBA
-  notified_email: TBA
