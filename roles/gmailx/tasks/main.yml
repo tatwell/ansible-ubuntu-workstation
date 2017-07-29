@@ -32,7 +32,10 @@
   when: tls_certificate_file.stat.exists == false
 
 - name: Configure msmtp.
-  debug: msg="TODO"
+  template:
+    src: msmtprc.j2
+    dest: "{{ ansible_env.HOME }}/.msmtprc"
+    mode: 0600
 
 - name: Configure mailx.
   debug: msg="TODO"
