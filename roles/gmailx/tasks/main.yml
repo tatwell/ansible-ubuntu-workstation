@@ -5,12 +5,10 @@
 - name: Show vars.
   debug: msg="{{ gmailx }}"
 
-- name: Check for vars file.
+- name: Fail if dist var file not copied and updated.
   local_action: stat path="{{ role_path }}/vars/main.yml"
   register: gmailx_vars_file
-
-- name: Fail if dist var file not copied and updated.
-  fail:
+- fail:
     msg: "You need to copy and update the vars dist file: cp -v {{ role_path }}/vars/main.yml{-dist,}"
   when: gmailx_vars_file.stat.exists == false
 
@@ -21,8 +19,17 @@
   with_items: "{{ gmailx.packages }}"
   become: yes
 
-- name: Install certificates.
-  debug: msg="TODO"
+- name: Update CA certificates.
+  shell: /usr/sbin/update-ca-certificates
+  become: yes
+
+- name: Fail if TLS certificate not found.
+  local_action: stat path="/usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt"
+  register: tls_certificate_file
+  become: yes
+- fail:
+    msg: "TLS certificate file not found: /usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt"
+  when: tls_certificate_file.stat.exists == false
 
 - name: Configure msmtp.
   debug: msg="TODO"
