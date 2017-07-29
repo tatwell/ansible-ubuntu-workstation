@@ -64,11 +64,11 @@ After running the playbook, I still need to do the following tasks manually:
   - After copying and adding VM, update shared folder under Settings.
 
 - tmux
- - To install plugins: `tmux` > CTRL-B > I
+  - To install plugins: `tmux` > CTRL-B > I
 
 
 ## Roles
 
-See `ansible-desktop.yml` for the roles used by this playbook. A summary of most roles can be found at:
+See `ansible-desktop.yml` for the roles used by this playbook. A summary of many roles can be found at:
 
 - https://github.com/Benoth/ansible-ubuntu#roles-included

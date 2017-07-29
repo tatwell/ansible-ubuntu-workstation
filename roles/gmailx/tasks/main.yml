@@ -38,4 +38,16 @@
     mode: 0600
 
 - name: Configure mailx.
-  debug: msg="TODO"
+  template:
+    src: mailrc.j2
+    dest: "{{ ansible_env.HOME }}/.mailrc"
+    mode: 0644
+
+- name: Prepare notification message.
+  template:
+    src: notification-email.j2
+    dest: /tmp/gmailx-test.txt
+    mode: 0644
+    force: true
+  when: gmailx.notify
+  notify: Email Notification Message

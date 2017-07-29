@@ -1,0 +1,3 @@
+---
+- name: Email Notification Message
+  shell: "mailx -s 'Ansible Workstation Playbook Complete' {{ gmailx.notified_email }} < /tmp/gmailx-test.txt"
