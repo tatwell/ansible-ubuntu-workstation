@@ -12,3 +12,9 @@ gmailx:
   # Whether to send email when playbook complete and where to send it
   notify: false
   notified_email: TBA
+
+  # Package depende
+  packages:
+    - heirloom-mailx
+    - msmtp
+    - ca-certificates

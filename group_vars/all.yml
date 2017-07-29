@@ -25,7 +25,7 @@ wiki:
 # To set password, copy role dist vars file and update:
 # cp -v roles/gmailx/vars/main.yml{-dist,}
 gmailx:
-  see: roles/gmailx/vars/main.yml
+  goto: roles/gmailx/vars/main.yml
 
 # Role: apache2-php
 vhosts:

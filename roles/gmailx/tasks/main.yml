@@ -2,14 +2,30 @@
 # Installs mailx for command-line email and configure to work with gmail account.
 #
 ---
-- name: Show vars
+- name: Show vars.
   debug: msg="{{ gmailx }}"
 
-- name: Check for vars file
+- name: Check for vars file.
   local_action: stat path="{{ role_path }}/vars/main.yml"
   register: gmailx_vars_file
 
-- name: Fail if dist var file not copied and updated
+- name: Fail if dist var file not copied and updated.
   fail:
     msg: "You need to copy and update the vars dist file: cp -v {{ role_path }}/vars/main.yml{-dist,}"
   when: gmailx_vars_file.stat.exists == false
+
+- name: Install package dependencies.
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ gmailx.packages }}"
+  become: yes
+
+- name: Install certificates.
+  debug: msg="TODO"
+
+- name: Configure msmtp.
+  debug: msg="TODO"
+
+- name: Configure mailx.
+  debug: msg="TODO"
