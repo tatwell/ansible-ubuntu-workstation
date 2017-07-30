@@ -1,0 +1,53 @@
+#
+# Installs mailx for command-line email and configure to work with gmail account.
+#
+---
+- name: Show vars.
+  debug: msg="{{ gmailx }}"
+
+- name: Fail if dist var file not copied and updated.
+  local_action: stat path="{{ role_path }}/vars/main.yml"
+  register: gmailx_vars_file
+- fail:
+    msg: "You need to copy and update the vars dist file: cp -v {{ role_path }}/vars/main.yml{-dist,}"
+  when: gmailx_vars_file.stat.exists == false
+
+- name: Install package dependencies.
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ gmailx.packages }}"
+  become: yes
+
+- name: Update CA certificates.
+  shell: /usr/sbin/update-ca-certificates
+  become: yes
+
+- name: Fail if TLS certificate not found.
+  local_action: stat path="/usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt"
+  register: tls_certificate_file
+  become: yes
+- fail:
+    msg: "TLS certificate file not found: /usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt"
+  when: tls_certificate_file.stat.exists == false
+
+- name: Configure msmtp.
+  template:
+    src: msmtprc.j2
+    dest: "{{ ansible_env.HOME }}/.msmtprc"
+    mode: 0600
+
+- name: Configure mailx.
+  template:
+    src: mailrc.j2
+    dest: "{{ ansible_env.HOME }}/.mailrc"
+    mode: 0644
+
+- name: Prepare notification message.
+  template:
+    src: notification-email.j2
+    dest: /tmp/gmailx-test.txt
+    mode: 0644
+    force: true
+  when: gmailx.notify
+  notify: Email Notification Message

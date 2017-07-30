@@ -1,3 +1,5 @@
 *.retry
 group_vars/_*.yml
 .dev
+
+roles/gmailx/vars/main.yml
