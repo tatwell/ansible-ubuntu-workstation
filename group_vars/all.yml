@@ -5,6 +5,27 @@ aptcachetime: 3600
 locale: "en_US.UTF-8"
 timezone: "America/Los_Angeles"
 
+# Role: gantsign.atom
+# https://galaxy.ansible.com/gantsign/atom/
+users:
+  - username: "{{ ansible_env.USER }}"
+    atom_packages:
+      - minimap
+      - linter
+      - atom-beautify
+      - file-icons
+      - pigments
+      - autocomplete-python
+    atom_config:
+      "*":
+        core:
+          projectHome: "{{ ansible_env.HOME }}"
+          telemetryConsent: no
+        editor:
+          tabType: soft
+          showIndentGuide: true
+          showInvisibles: true
+
 # Root Database Passwords
 # Roles: mysql57, PotgreSQL-Install
 database:
