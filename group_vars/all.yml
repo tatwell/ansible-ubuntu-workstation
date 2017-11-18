@@ -32,6 +32,9 @@ users:
           tabType: soft
           showIndentGuide: true
           showInvisibles: true
+        whitespace:
+          ensureSingleTrailingNewline: false
+          removeTrailingWhitespace: false
 
 # Root Database Passwords
 # Roles: mysql57, PotgreSQL-Install
