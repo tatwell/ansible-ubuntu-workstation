@@ -10,12 +10,19 @@ timezone: "America/Los_Angeles"
 users:
   - username: "{{ ansible_env.USER }}"
     atom_packages:
+      - sync-settings
       - minimap
       - linter
       - atom-beautify
       - file-icons
       - pigments
       - autocomplete-python
+      - atom-html-preview
+      - markdown-preview
+      - markdown-preview-plus
+      - language-python
+      - language-ruby-on-rails
+      - language-json
     atom_config:
       "*":
         core:
