@@ -19,7 +19,10 @@
   with_items:
     - afuse
     - aptitude
+    - autoconf
+    - automake
     - axel
+    - bison
     - build-essential
     - bzip2
     - checkinstall
@@ -42,7 +45,11 @@
     - less
     - lftp
     - libffi-dev
+    - libbison-dev
+    - libgdbm-dev
+    - libncurses5-dev
     - libssl-dev
+    - libyaml-dev
     - make
     - nano
     - nfs-common
