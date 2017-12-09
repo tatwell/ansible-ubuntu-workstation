@@ -47,6 +47,7 @@
     - libffi-dev
     - libbison-dev
     - libgdbm-dev
+    - libmysqlclient-dev
     - libncurses5-dev
     - libssl-dev
     - libyaml-dev
