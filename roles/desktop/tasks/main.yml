@@ -14,6 +14,7 @@
     - cifs-utils
     - mpv
     - pinta # light paint.net equivalent
+    - pdfshuffler # combine PDF files
     - rhythmbox
     - rxvt-unicode-256color
     - sox # to play sounds
