@@ -42,7 +42,7 @@
     - { role: kylebebak.tmux }
     - { role: gantsign.atom }
     - { role: virtualbox, become: true }
-    ### skip fail - { role: gmailx, tags: dev }
+    - { role: gmailx, tags: dev }
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }
     # - { role: nodejs, become: true }

@@ -13,7 +13,11 @@ gmailx:
   notify: false
   notified_email: TBA
 
-  # Package depende
+  # For tls_trust_file setting
+  # Source: https://wiki.archlinux.org/index.php/msmtp
+  crt_file: /etc/ssl/certs/ca-certificates.crt
+
+  # Package dependencies
   packages:
     - heirloom-mailx
     - msmtp
