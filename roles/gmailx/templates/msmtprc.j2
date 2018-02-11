@@ -11,7 +11,7 @@ user {{ gmailx.user }}
 password {{ gmailx.password }}
 from {{ gmailx.user }}
 tls on
-tls_trust_file /usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt
+tls_trust_file {{ gmailx.crt_file }}
 
 # set default account to use (not necessary with single account)
 account default : gmail

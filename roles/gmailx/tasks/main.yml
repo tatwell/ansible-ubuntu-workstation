@@ -24,11 +24,11 @@
   become: yes
 
 - name: Fail if TLS certificate not found.
-  local_action: stat path="/usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt"
+  local_action: stat path="{{ gmailx.crt_file }}"
   register: tls_certificate_file
   become: yes
 - fail:
-    msg: "TLS certificate file not found: /usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt"
+    msg: "TLS certificate file not found: {{ gmailx.crt_file }}"
   when: tls_certificate_file.stat.exists == false
 
 - name: Configure msmtp.

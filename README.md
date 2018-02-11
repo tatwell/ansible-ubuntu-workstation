@@ -21,6 +21,15 @@ cd ansible-ubuntu-workstation
 2. Review and customize the playbook `ansible-desktop.yml`
 3. Update settings in `group_vars/all.yml`.
 
+### Galaxy roles
+
+To install a new role from Galaxy:
+
+    ansible-galaxy install username.rolename
+
+To update a Galaxy role:
+
+    ansible-galaxy install --force username.rolename
 
 ## Usage
 To run the playbook:
