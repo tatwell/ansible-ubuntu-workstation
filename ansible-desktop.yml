@@ -42,7 +42,7 @@
     - { role: kylebebak.tmux }
     - { role: gantsign.atom }
     - { role: virtualbox, become: true }
-    - { role: gmailx, tags: dev }
+    - { role: gmailx }
     # - { role: docker, become: true }
     # - { role: vagrant, become: true }
     # - { role: nodejs, become: true }
@@ -80,7 +80,7 @@
     - { role: jenkins-pyenv, become: true }
 
     # Personal Local Sites
-    ### skip fail - { role: wiki }
+    - { role: wiki }
     - { role: mushpup, become: true }
 
     # Epilogue
