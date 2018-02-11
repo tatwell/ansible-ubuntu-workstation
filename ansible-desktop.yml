@@ -76,7 +76,7 @@
     - { role: bbatsche.PostgreSQL-Install, postgres_version: '9.5' }
 
     # Jenkins Server
-    ### skip fail - { role: geerlingguy.jenkins, become: true }
+    - { role: geerlingguy.jenkins, become: true }
     ### skip fail - { role: jenkins-pyenv, become: true }
 
     # Personal Local Sites
