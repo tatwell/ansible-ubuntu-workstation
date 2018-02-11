@@ -77,7 +77,7 @@
 
     # Jenkins Server
     - { role: geerlingguy.jenkins, become: true }
-    ### skip fail - { role: jenkins-pyenv, become: true }
+    - { role: jenkins-pyenv, become: true }
 
     # Personal Local Sites
     ### skip fail - { role: wiki }
